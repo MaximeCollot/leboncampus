@@ -2990,5 +2990,64 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "yohang/calendr",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yohang/CalendR.git",
+            "reference": "1ae1da29ec9e633afb692cc763b6736c1def3f55"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yohang/CalendR/zipball/1ae1da29ec9e633afb692cc763b6736c1def3f55",
+            "reference": "1ae1da29ec9e633afb692cc763b6736c1def3f55",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5|^7.0",
+            "symfony/options-resolver": "^2.7|^3.0|^4.0"
+        },
+        "require-dev": {
+            "doctrine/cache": "^1.5",
+            "doctrine/common": "^2.5",
+            "doctrine/orm": "^2.5",
+            "phpunit/phpunit": "^4.8.35|^5.4.0|^6.0|^7.0",
+            "silex/silex": "^1.3",
+            "twig/twig": "^1.23"
+        },
+        "time": "2018-04-04T17:39:14+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "CalendR": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Yohan GIARELLI",
+                "email": "yohan@giarel.li",
+                "homepage": "http://yohan.giarel.li"
+            }
+        ],
+        "description": "Object Oriented calendar management",
+        "homepage": "https://github.com/yohang/CalendR",
+        "keywords": [
+            "calendar",
+            "date",
+            "events"
+        ]
     }
 ]

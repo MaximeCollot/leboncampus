@@ -263,6 +263,13 @@ class ComposerStaticInit7774e0c57c6862acaf23aa9de3d377c9
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
             ),
         ),
+        'C' => 
+        array (
+            'CalendR' => 
+            array (
+                0 => __DIR__ . '/..' . '/yohang/calendr/src',
+            ),
+        ),
     );
 
     public static $fallbackDirsPsr0 = array (

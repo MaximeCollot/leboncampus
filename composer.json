@@ -28,7 +28,8 @@
         "symfony/security": "3.4.6",
         "symfony/twig-bridge": "3.4.6",
         "symfony/validator": "3.4.6",
-        "doctrine/dbal": "2.5.13"
+        "doctrine/dbal": "2.5.13",
+        "yohang/calendr": "^2.1"
     },
     "autoload": {
         "psr-0": { "": "src/" }

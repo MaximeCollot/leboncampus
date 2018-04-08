@@ -1,0 +1,51 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Permanence - {{date}}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+     <link href="{{ asset('css/permanence.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+	{{ parent() }}
+  <div class="text-center">
+    <a href="{{previousMonth}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    {{ date }}
+    <a href="{{nextMonth}}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  	<table class="table">
+      <thead>
+          <tr>
+              <th>Lundi</th>
+              <th>Mardi</th>
+              <th>Mercredi</th>
+              <th>Jeudi</th>
+              <th>Vendredi</th>
+              <th>Samedi</th>
+              <th>Dimanche</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for week in month %}
+              <tr>
+                  {% for day in week %}
+                      <td>
+                          {% set realMonth = day.format('n') %}
+                          <div class="case {{ realMonth != currentMonth ? 'disabled' }}">
+                            {% set jour = day.format('j') %}
+                            {{jour}}
+                            {% set day_events = events.find(day) %}
+                            {% if day_events|length > 0 %}
+                                <a href="{{currentMonth}}/{{jour}}">S'inscrire</a>
+                            {% endif %}
+                          </div>
+                      </td>
+                  {% endfor %}
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  <div class="text-center">
+{% endblock %}

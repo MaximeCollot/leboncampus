@@ -1,4 +1,4 @@
-﻿{% extends "layout.html.twig" %}
+{% extends "layout.html.twig" %}
 
 {% block title %}
     Permanence
@@ -6,14 +6,9 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="css/permanence.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/permanence.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
 	{{ parent() }}
-	<div class="text-center"> 
-      <h1>Bienvenue sur le site de l'association</h1>
-      <h2>Le Bon Campus</h2>
-      <a class="btn btn-primary btn-lg" href="permanence" role="button">S'inscrire à une permanence</a>
-    </div>
 {% endblock %}

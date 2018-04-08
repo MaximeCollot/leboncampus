@@ -18,7 +18,6 @@ use User\UserProvider;
 $app = new Application();
 
 $app->register(new ServiceControllerServiceProvider());
-$app->register(new AssetServiceProvider());
 $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 
@@ -26,6 +25,8 @@ $app->register(new FormServiceProvider());
 $app->register(new LocaleServiceProvider());
 $app->register(new TranslationServiceProvider());
 $app->register(new ValidatorServiceProvider());
+
+$app->register(new AssetServiceProvider());
 
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
@@ -50,6 +51,12 @@ $app['userProvider'] = function($app) {
 $app->register(new Silex\Provider\SessionServiceProvider(),
             ['session.storage.save_path' => __DIR__.'/var/sessions']
         );
+
+$app->register(new CalendR\Extension\Silex\Provider\CalendRServiceProvider());
+$eventManager = new CalendR\Event\Manager();
+$eventProvider = new CalendR\Event\Provider\Basic();
+$eventManager->addProvider('eventProvider', $eventProvider);
+$app['calendr']->setEventManager($eventManager);
 
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(

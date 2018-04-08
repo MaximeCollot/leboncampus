@@ -1,0 +1,11 @@
+th, td {
+	text-align: center;
+}
+
+.case {
+	height: 80px;
+}
+
+.disabled {
+	background-color: grey;
+}
