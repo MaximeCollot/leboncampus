@@ -1,0 +1,36 @@
+{% extends "layout.html.twig" %}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+{{ parent() }}
+
+<div class="text-center">
+    <img class="mb-4" src="{{ asset('img/logo.jpg') }}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Veuillez remplir le formulaire d'inscription</h1>
+    {{ form_start(form, { 'attr': { 'class': 'form-signin' }}) }}
+
+        {{ form_errors(form) }}
+        {{ form_row(form.username, {
+          'placeholder': 'XXXXXX@univ.fr',
+          'label': 'Email'
+        }) }}
+
+        {{ form_errors(form.password) }}
+        {{ form_widget(form.password) }}
+        <div>
+          <button type="submit" class="btn btn-primary">Inscription</button>
+        </div>
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

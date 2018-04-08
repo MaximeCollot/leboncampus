@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Kit
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+	{{ parent() }}
+	<div class="text-center"> 
+      <h1>Quel est votre demande ?</h1>
+      {{ form_start(form, { 'attr': { 'class': 'form-signin' }}) }}
+        <ul class="list-group">
+          <li class="list-group-item {{ app.user.kitVieRecu == 1 ? 'disabled' }}">
+            {{ form_row(form.kitVie)}}
+          </li>
+          <li class="list-group-item {{ app.user.kitHygieneRecu == 1 ? 'disabled' }}"> 
+            {{ form_row(form.kitHygiene)}}
+          </li>
+          <li class="list-group-item {{ app.user.kitRentreeRecu == 1 ? 'disabled' }}">
+            {{ form_row(form.kitRentree)}}
+          </li>
+        </ul>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer la demande</button>
+      </form>
+    </div>
+{% endblock %}
