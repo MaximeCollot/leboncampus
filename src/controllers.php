@@ -64,7 +64,20 @@ $app->get('/permanence/{year}/{month}', function($year, $month) use($app) {
 });
 
 $app->get('/permanence/{year}/{month}/{day}', function($year, $month, $day) use($app) {
-    return $app['twig']->render('permanence.html.twig');
+    return $app['twig']->render('permanence-plage.html.twig', array(
+        'day' => $day
+    ));
+});
+
+$app->get('/permanence/{year}/{month}/{day}/{slot}', function($year, $month, $day, $slot) use($app) {
+    $slotRanges = array('16h - 16h15', '16h15 - 16h30', '16h30 - 16h45', '16h45 - 17h', '17h - 17h15', '17h15 - 17h30');
+    return $app['twig']->render('permanence.html.twig', array(
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'slot' => $slot,
+        'slotRange' => $slotRanges[$slot]
+    ));
 });
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {

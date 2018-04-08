@@ -11,4 +11,11 @@
 
 {% block content %}
 	{{ parent() }}
+	<div class="text-center">
+		<h1>Disponibilités de ce crénau</h1>
+		<h2>{{slotRange}}</h2>
+		<a href="#" class="btn btn-secondary btn-lg active col-sm-4" role="button">S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+		<a href="#" class="btn btn-secondary btn-lg active col-sm-4" role="button">S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+		<a href="#" class="btn btn-secondary btn-lg active col-sm-4" role="button">S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+	</div>
 {% endblock %}

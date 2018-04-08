@@ -9,3 +9,7 @@ th, td {
 .disabled {
 	background-color: grey;
 }
+
+h3 {
+	display: inline;
+}
