@@ -14,6 +14,7 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder;
 use User\UserProvider;
+use Permanence\PermanenceProvider;
 
 $app = new Application();
 
@@ -46,6 +47,10 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 $app['userProvider'] = function($app) {
      return new UserProvider($app['db']);
+};
+
+$app['permanenceProvider'] = function($app) {
+    return new PermanenceProvider($app['db']);
 };
 
 $app->register(new Silex\Provider\SessionServiceProvider(),

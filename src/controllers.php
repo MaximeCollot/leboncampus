@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use Permanence\Permanence;
+
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 $app->get('/', function () use ($app) {
@@ -64,20 +66,39 @@ $app->get('/permanence/{year}/{month}', function($year, $month) use($app) {
 });
 
 $app->get('/permanence/{year}/{month}/{day}', function($year, $month, $day) use($app) {
+    $placesLeft = array_fill(0, 6, 3);
+
+    $placesOccupied = $app['permanenceProvider']->getCountByDate(date("Y-m-d", strtotime($month.'/'.$day.'/'.$year)));
+    foreach ($placesOccupied as $placeOccupied) {
+        $placesLeft[$placeOccupied['slot']] = 3 - intval($placeOccupied['count']);
+    }
+
     return $app['twig']->render('permanence-plage.html.twig', array(
-        'day' => $day
+        'day' => $day,
+        'placesLeft' => $placesLeft
     ));
 });
 
 $app->get('/permanence/{year}/{month}/{day}/{slot}', function($year, $month, $day, $slot) use($app) {
     $slotRanges = array('16h - 16h15', '16h15 - 16h30', '16h30 - 16h45', '16h45 - 17h', '17h - 17h15', '17h15 - 17h30');
+
+    $slotsTaken = array_pad($app['permanenceProvider']->getResultsByDateAndSlot(date("Y-m-d", strtotime($month.'/'.$day.'/'.$year)), $slot), 3, 0);
+
     return $app['twig']->render('permanence.html.twig', array(
         'year' => $year,
         'month' => $month,
         'day' => $day,
         'slot' => $slot,
-        'slotRange' => $slotRanges[$slot]
+        'slotRange' => $slotRanges[$slot],
+        'slotsTaken' => $slotsTaken
     ));
+});
+
+$app->post('/permanence/{year}/{month}/{day}/{slot}', function($year, $month, $day, $slot) use($app) {
+    $date = date("Y-m-d", strtotime($month.'/'.$day.'/'.$year));
+    $permanence = new Permanence($date, $slot, $app['user']->getUsername());
+    $app['permanenceProvider']->save($permanence);
+    return $app->redirect('/web/permanence');
 });
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {

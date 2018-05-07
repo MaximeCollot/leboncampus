@@ -38,7 +38,9 @@
                             {{jour}}
                             {% set day_events = events.find(day) %}
                             {% if day_events|length > 0 %}
-                                <a href="{{currentMonth}}/{{jour}}">S'inscrire</a>
+                                <div><a class="btn btn-secondary active" href="{{currentMonth}}/{{jour}}">S'inscrire</a></div>
+                            {% else %}
+                                <div class="stripe"></div>
                             {% endif %}
                           </div>
                       </td>

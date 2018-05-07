@@ -16,27 +16,63 @@
 		<form class="form-horizontal" action="#">
 			<div class="form-group">
 				<label class="control-label col-sm-4">16h - 16h15 : </label>
-				<a href="{{day}}/0" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/0" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[0]}} places - 
+					{% if placesLeft[0] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">16h15 - 16h30 : </label>
-				<a href="{{day}}/1" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/1" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[1]}} places - 
+					{% if placesLeft[1] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">16h30 - 16h45 : </label>
-				<a href="{{day}}/2" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/2" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[2]}} places - 
+					{% if placesLeft[2] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">16h45 - 17h : </label>
-				<a href="{{day}}/3" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/3" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[3]}} places - 
+					{% if placesLeft[3] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">17h - 17h15 : </label>
-				<a href="{{day}}/4" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/4" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[4]}} places - 
+					{% if placesLeft[4] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-4">17h15 - 17h30 : </label>
-				<a href="{{day}}/5" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste X places - S'inscrire &nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+				<a href="{{day}}/5" class="btn btn-secondary btn-lg active col-sm-4" role="button" aria-pressed="true">Il reste {{placesLeft[5]}} places - 
+					{% if placesLeft[5] != 0 %}
+						S'inscrire
+					{% else %}
+						Consulter
+					{% endif %}
+					&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
 			</div>
 		</form>
 	</div>
